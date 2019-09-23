@@ -13,7 +13,7 @@
 
   <tbody>
   	<% i = 0 %>
-  	<% @survey_answers_content[0].length.times do %>
+  	<% @survey_answers_content.max_by{|x| x.length}.length.times do %>
   	  <tr>
   	    <% @survey_answers_content.each do |answer| %>
           <td><%= answer[i] %></td>
