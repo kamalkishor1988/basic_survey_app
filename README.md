@@ -54,11 +54,11 @@ and go to `localhost:3000`. You should see the login page.
 ```bash
 $ HOST http://localhost:3000 OR any other
 ```
-1. to get the list of existing survey
+1.to get the list of existing survey
 ```bash
 $ GET /api/surveys
 ```
-2. to add questions to the survey
+2.to add questions to the survey
 ```bash
 $ POST /api/surveys/:id/questions
 Body params
@@ -68,15 +68,15 @@ Body params
 	}
 }
 ```
-3. to get questions to the survey
+3.to get questions to the survey
 ```bash
 $ GET /api/surveys/:id/questions
 ```
-4. to delete questions to the survey
+4.to delete questions to the survey
 ```bash
 $ DELETE /api/surveys/:id/questions/:question_id
 ```
-5. to take the survey
+5.to take the survey
 ```bash
 $ POST /api/surveys/take_survey
 Body params
