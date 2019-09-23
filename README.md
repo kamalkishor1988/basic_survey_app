@@ -7,6 +7,12 @@
 ruby 2.4.1p111 (2017-03-22 revision 58053) [x86_64-darwin17]
 ```
 
+# Default login and password
+```
+email: admin@example.com
+password: admin@123
+```
+
 #### 1. Add new user for PostgreSQL
 
 ```bash
