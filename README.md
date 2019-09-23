@@ -61,6 +61,12 @@ $ GET /api/surveys
 to add questions to the survey
 ```bash
 $ POST /api/surveys/:id/questions
+Body params
+{
+	"questions_attributes" : {
+		"content" : "What is your age?"
+	}
+}
 ```
 to get questions to the survey
 ```bash
@@ -73,6 +79,15 @@ $ DELETE /api/surveys/:id/questions/:question_id
 to take the survey
 ```bash
 $ POST /api/surveys/take_survey
+Body params
+{
+	"questions_attributes" : {
+		"id" : 17,
+		 "answers_attributes": {
+		 	"content": "Absolutly yes Brother"
+		 }
+	}
+}
 ```
 
 Use user details like 'email and password'(which is admin) from seed file to login or You can sign up and use those credential to login and ask administrator to mark you 'Admin' manually.
