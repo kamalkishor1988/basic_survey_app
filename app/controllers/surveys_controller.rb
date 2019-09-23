@@ -106,7 +106,7 @@ class SurveysController < ApplicationController
     end
 
     def survey_params
-      params.require(:survey).permit(:title, questions_attributes: [ :id, :content, :_destroy, answers_attributes: [ :content, :_destroy ] ])
+      params.require(:survey).permit(:title, questions_attributes: [ :id, :content, :_destroy, answers_attributes: [ :id, :content, :_destroy ] ])
     end
 
     def authorize_admin
