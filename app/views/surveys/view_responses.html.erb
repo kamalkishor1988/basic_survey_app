@@ -1,0 +1,29 @@
+
+<br /><p class="lead">Survey Responses</p>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <% @survey_questions_content.each do |survey_question| %>
+        <th><%= survey_question %></th>
+      <% end %>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  	<% i = 0 %>
+  	<% @survey_answers_content[0].length.times do %>
+  	  <tr>
+  	    <% @survey_answers_content.each do |answer| %>
+          <td><%= answer[i] %></td>
+        <% end %>
+        <% i+=1 %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Back', surveys_path %>

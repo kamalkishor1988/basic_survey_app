@@ -1,0 +1,35 @@
+<div class="container">
+  <nav>
+    <% if user_signed_in? %>
+    <ul class="nav navbar-nav navbar-left">
+      <div style="margin: 8px 0px 0px 0px; float: left">
+        <%= link_to "Home", root_path, class: "btn btn-primary", style: 'color: #fff'%>
+      </div>
+      <div style="margin: 15px 0px 0px 20px; float: left">
+        <li style="color: #ffffff; font-size: 14px"> Welcome, <%=current_user.email %>! </li>
+      </div>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <div style="margin: 8px 8px 8px 0px; float: left;">
+        <%= link_to "CREATE A SURVEY", new_survey_path, class: "btn btn-info", style: 'color: #fff'%>
+      </div>
+      <div style="margin: 8px 0px 8px 0px; float: left;">
+        <%= link_to "All SURVEYS", root_path, class: "btn btn-primary", style: 'color: #fff'%>
+      </div>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: #ffffff">
+          <b class="caret" style="border-top:9px solid #ffffff"></b>
+        </a>
+        <ul class="dropdown-menu">
+          <li class="divider"></li>
+          <li><%= link_to '<i class="glyphicon glyphicon-off"></i> Log out'.html_safe, destroy_user_session_path, method: :delete, :style => "float: left" %></li>
+        </ul>
+      </li>
+    </ul>
+    <% else %>
+      <div style="margin: 15px 0px 0px 20px; float: left">
+        <li style="color: #ffffff; font-size: 14px"> Basic Survey app !</li>
+      </div>
+    <% end %>
+  </nav>
+</div>

@@ -1,0 +1,28 @@
+<p></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @survey.title %>
+</p>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Question(s)</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @survey.questions.each do |question| %>
+      <tr>
+        <td><%= question.content %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Edit', edit_survey_path(@survey) %> |
+<%= link_to 'Back', surveys_path %>

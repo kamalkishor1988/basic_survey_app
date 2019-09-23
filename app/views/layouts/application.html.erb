@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BasicSurveyApp</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script>
+      $(".alert").fadeOut(3000);
+    </script>
+  </head>
+
+  <body>
+  	<header class="navbar navbar-fixed-top navbar-inverse">
+	  <%= render partial: "shared/navbar"%>
+    </header>
+    <div class="container">
+      <br/><br/>
+      <% if notice %><div class="alert alert-info"><%= notice %></div><% end %>
+      <% if alert %><div class="alert alert-warning"><%= alert %></div><% end %>
+      <%= yield %>
+    </div>
+  <br/>
+  <br/>
+  <script>
+	$(".alert").fadeOut(3000);
+  </script>
+  </body>
+</html>
