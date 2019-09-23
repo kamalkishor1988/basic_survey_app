@@ -14,9 +14,8 @@ Rails.application.routes.draw do
   post '/api/surveys/:id/questions', to: 'surveys#add_questions'
   # api to get questions to the survey
   get '/api/surveys/:id/questions', to: 'surveys#get_questions'
-  # api to add or delete questions to the survey
+  # api to delete questions to the survey
   delete 'api/surveys/:id/questions/:question_id', to: 'surveys#delete_questions'
-
   # api to take the survey
   post 'api/surveys/take_survey', to: 'surveys#take_survey'
 end

@@ -1,25 +1,72 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Place Sharing App dev setup
 
-Things you may want to cover:
+# Ruby version
+```
+ruby 2.4.1p111 (2017-03-22 revision 58053) [x86_64-darwin17]
+```
 
-* Ruby version
+#### 1. Add new user for PostgreSQL
 
-* System dependencies
+```bash
+sudo adduser spp_user
+```
+and give UNIX password as admin.
 
-* Configuration
+Create a corresponding user in postgres and set the password there:
 
-* Database creation
+```bash
+su postgres
 
-* Database initialization
+psql template1
+```
 
-* How to run the test suite
+`psql` command will take you to postgres console. Following commands to be run there:
 
-* Services (job queues, cache servers, search engines, etc.)
+```sql
+CREATE USER spp_user WITH PASSWORD 'admin';
 
-* Deployment instructions
+ALTER ROLE spp_user WITH CREATEDB Replication;
+```
+#### OR Add the existing postgresql username and password to project database.yml
 
-* ...
-# basic_survey_app
+#### 2. Database setup
+
+```bash
+rake db:drop && rake db:create && rake db:migrate && rake db:seed
+```
+
+#### 3. Start rails server
+
+```bash
+bin/rails s
+```
+and go to `localhost:3000`. You should see the login page.
+
+#### 4. APIs
+```bash
+$ HOST http://localhost:3000 OR any other
+```
+to get the list of existing survey
+```bash
+$ GET /api/surveys
+```
+to add questions to the survey
+```bash
+$ POST /api/surveys/:id/questions
+```
+to get questions to the survey
+```bash
+$ GET /api/surveys/:id/questions
+```
+api to delete questions to the survey
+```bash
+$ DELETE /api/surveys/:id/questions/:question_id
+```
+to take the survey
+```bash
+$ POST /api/surveys/take_survey
+```
+
+Use user details like 'email and password'(which is admin) from seed file to login or You can sign up and use those credential to login and ask administrator to mark you 'Admin' manually.
